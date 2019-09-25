@@ -9,11 +9,14 @@ GUILD = os.getenv('DISCORD_GUILD')
 
 client = discord.Client()
 
+
 @client.event
 async def on_ready():
+    print(client.guilds[0].name)
     for guild in client.guilds:
         if guild.name == GUILD:
-            print(f'{guild.name}(id: {guild.id})')
+            pass
+
 
 @client.event
 async def on_message(message):
@@ -21,7 +24,16 @@ async def on_message(message):
         print(f'{message.channel}')
         if "makechannel" in message.content:
             contents = message.content.split(" ")
+            await process_request(contents)
             for item in contents:
                 print(item)
+
+
+def process_request(list):
+    guild = client.guilds[0]
+    print("name: ", guild.name)
+    print(list[1])
+    guild.create_text_channel(list[1])
+
 
 client.run(TOKEN)
