@@ -2,7 +2,6 @@ import os
 
 import discord
 from discord.ext import commands
-from discord.ext.commands import Context
 from discord.utils import find
 from dotenv import load_dotenv
 
