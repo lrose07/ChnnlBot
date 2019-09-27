@@ -1,2 +1,3 @@
 git+git://github.com/Rapptz/discord.py.git@async#egg=discord
+git+https://github.com/Rapptz/discord.py@rewrite
 python-dotenv
