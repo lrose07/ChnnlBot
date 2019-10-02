@@ -56,6 +56,11 @@ async def on_message(message):
                                 guild.me: discord.PermissionOverwrite(read_messages=True)
                             }
 
+                            overwrites.update({message.author: discord.PermissionOverwrite(
+                                read_messages=True,
+                                send_messages=True
+                            )})
+
                             for user in channel_members:
                                 print(user)
                                 member = find(lambda m: m.name == user, guild.members)
